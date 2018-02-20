@@ -15,15 +15,18 @@ public class Disk
         this.nextDisk = null;
     }
 
-    public int getSize() {
+    public int getSize()
+    {
         return size;
     }
 
-    public Disk getNextDisk() {
+    public Disk getNextDisk()
+    {
         return nextDisk;
     }
 
-    public void setNextDisk(Disk nextDisk) {
+    public void setNextDisk(Disk nextDisk)
+    {
         this.nextDisk = nextDisk;
     }
 }
