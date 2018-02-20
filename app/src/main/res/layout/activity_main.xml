@@ -14,15 +14,11 @@
         tools:layout_editor_absoluteY="8dp">
 
         <LinearLayout
+            android:id="@+id/placeholderVG"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Place Holder for Disk" />
         </LinearLayout>
 
         <LinearLayout
@@ -34,21 +30,24 @@
                 android:id="@+id/tower0Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="buttonOnClick"
+                android:layout_weight="1"
+                android:onClick="tower0ButtonPressed"
                 android:text="pop" />
 
             <Button
                 android:id="@+id/tower1Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="buttonOnClick"
+                android:layout_weight="1"
+                android:onClick="tower1ButtonPressed"
                 android:text="pop" />
 
             <Button
                 android:id="@+id/tower2Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="buttonOnClick"
+                android:layout_weight="1"
+                android:onClick="tower2ButtonPressed"
                 android:text="pop" />
         </LinearLayout>
 
@@ -59,26 +58,27 @@
 
             <LinearLayout
                 android:id="@+id/tower0"
-                android:layout_width="wrap_content"
+                android:layout_width="112dp"
                 android:layout_height="match_parent"
-                android:gravity="bottom"
+                android:layout_weight="33.33"
+                android:gravity="bottom|center_horizontal"
                 android:orientation="vertical">
 
                 <Button
                     android:id="@+id/disk0"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="==" />
 
                 <Button
                     android:id="@+id/disk1"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="====" />
 
                 <Button
                     android:id="@+id/disk2"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="======" />
             </LinearLayout>
@@ -87,12 +87,16 @@
                 android:id="@+id/tower1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_weight="33.33"
+                android:gravity="bottom|center_horizontal"
                 android:orientation="vertical"></LinearLayout>
 
             <LinearLayout
                 android:id="@+id/tower2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_weight="33.33"
+                android:gravity="bottom|center_horizontal"
                 android:orientation="vertical"></LinearLayout>
         </LinearLayout>
     </LinearLayout>
