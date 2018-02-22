@@ -14,9 +14,40 @@
         tools:layout_editor_absoluteY="8dp">
 
         <LinearLayout
+            android:id="@+id/moveCounterVG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="Moves:"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/movesET"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="0"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/placeholderVG"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:orientation="horizontal">
 
         </LinearLayout>
@@ -49,6 +80,7 @@
                 android:layout_weight="1"
                 android:onClick="tower2ButtonPressed"
                 android:text="pop" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -58,9 +90,8 @@
 
             <LinearLayout
                 android:id="@+id/tower0"
-                android:layout_width="112dp"
+                android:layout_width="122dp"
                 android:layout_height="match_parent"
-                android:layout_weight="33.33"
                 android:gravity="bottom|center_horizontal"
                 android:orientation="vertical">
 
@@ -85,17 +116,15 @@
 
             <LinearLayout
                 android:id="@+id/tower1"
-                android:layout_width="wrap_content"
+                android:layout_width="126dp"
                 android:layout_height="match_parent"
-                android:layout_weight="33.33"
                 android:gravity="bottom|center_horizontal"
                 android:orientation="vertical"></LinearLayout>
 
             <LinearLayout
                 android:id="@+id/tower2"
-                android:layout_width="wrap_content"
+                android:layout_width="104dp"
                 android:layout_height="match_parent"
-                android:layout_weight="33.33"
                 android:gravity="bottom|center_horizontal"
                 android:orientation="vertical"></LinearLayout>
         </LinearLayout>

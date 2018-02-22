@@ -19,19 +19,23 @@ public class Disk
         this.diskVisual = diskVisual;
     }
 
-    public int getSize() {
+    public int getSize()
+    {
         return size;
     }
 
-    public Disk getNextDisk() {
+    public Disk getNextDisk()
+    {
         return nextDisk;
     }
 
-    public void setNextDisk(Disk nextDisk) {
+    public void setNextDisk(Disk nextDisk)
+    {
         this.nextDisk = nextDisk;
     }
 
-    public Button getDiskVisual() {
+    public Button getDiskVisual()
+    {
         return diskVisual;
     }
 }

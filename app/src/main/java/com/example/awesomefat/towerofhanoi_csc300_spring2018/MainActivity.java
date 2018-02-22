@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -13,12 +15,16 @@ public class MainActivity extends AppCompatActivity
     private ViewGroup placeholderVG;
     private Button[] towerButtons = new Button[3];
     private boolean shouldPop = true;
+    private int moves = 0;
+    private TextView movesET;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        this.movesET = (TextView)this.findViewById(R.id.movesET);
 
         this.towerButtons[0] = (Button)this.findViewById(R.id.tower0Button);
         this.towerButtons[1] = (Button)this.findViewById(R.id.tower1Button);
@@ -65,6 +71,8 @@ public class MainActivity extends AppCompatActivity
             {
                 b.setText("PUSH");
             }
+            moves++;
+            this.movesET.setText("" + moves);
         }
     }
 
@@ -77,10 +85,21 @@ public class MainActivity extends AppCompatActivity
             this.towers[towerIndex].push(this.placeholder);
             this.placeholder = null;
             this.shouldPop = true;
-            for(Button b : this.towerButtons)
+            for (Button b : this.towerButtons)
             {
                 b.setText("POP");
             }
+            moves++;
+            this.movesET.setText("" + moves);
+            //Check for winner
+            if(this.towers[2].peek().getSize() == 0)
+            {
+                Toast.makeText(this, "Winner!!!", Toast.LENGTH_LONG).show();
+            }
+        }
+        else if(this.placeholder.getSize() > temp.getSize())
+        {
+            Toast.makeText(this, "Illegal Move", Toast.LENGTH_LONG).show();
         }
     }
 
