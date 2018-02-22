@@ -11,15 +11,19 @@ public class Tower
 {
     private Disk top;
     private ViewGroup towerVisual;
+    private int count;
 
     public Tower(ViewGroup towerVisual)
     {
         this.top = null;
         this.towerVisual = towerVisual;
+        this.count = 0;
     }
 
     public void push(Disk d)
     {
+        this.count++;
+
         //equivalent to add front for linked lists
         if(this.top == null)
         {
@@ -44,10 +48,16 @@ public class Tower
 
         if(disk2Remove != null)
         {
+            this.count--;
             this.top = disk2Remove.getNextDisk();
             disk2Remove.setNextDisk(null);
             this.towerVisual.removeViewAt(0);
         }
         return disk2Remove;
+    }
+
+    public int getCount()
+    {
+        return count;
     }
 }

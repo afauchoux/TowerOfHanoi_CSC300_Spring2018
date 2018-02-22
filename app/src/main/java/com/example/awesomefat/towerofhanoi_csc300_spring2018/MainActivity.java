@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity
     private boolean shouldPop = true;
     private int moves = 0;
     private TextView movesET;
+    private boolean isWinner = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -61,6 +62,8 @@ public class MainActivity extends AppCompatActivity
 
     private void tryToPopFromTower(int towerIndex)
     {
+        if(this.isWinner) return;
+
         Disk temp = this.towers[towerIndex].pop();
         if(temp != null)
         {
@@ -72,7 +75,11 @@ public class MainActivity extends AppCompatActivity
                 b.setText("PUSH");
             }
             moves++;
-            this.movesET.setText("" + moves);
+            this.movesET.setText("" + this.moves);
+        }
+        else
+        {
+            Toast.makeText(this, "Illegal Move", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -90,16 +97,21 @@ public class MainActivity extends AppCompatActivity
                 b.setText("POP");
             }
             moves++;
-            this.movesET.setText("" + moves);
-            //Check for winner
-            if(this.towers[2].peek().getSize() == 0)
-            {
-                Toast.makeText(this, "Winner!!!", Toast.LENGTH_LONG).show();
-            }
+            this.movesET.setText("" + this.moves);
+            this.checkForWinner();
         }
         else if(this.placeholder.getSize() > temp.getSize())
         {
             Toast.makeText(this, "Illegal Move", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void checkForWinner()
+    {
+        if(this.towers[2].getCount() == 3)
+        {
+            Toast.makeText(this, "Winner!!!", Toast.LENGTH_LONG).show();
+            this.isWinner = true;
         }
     }
 
